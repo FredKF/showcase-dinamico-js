@@ -1,4 +1,35 @@
-* {
+/* * {
   margin: 0;
   box-sizing: border-box;
+} */
+
+.container{
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns:repeat(4,1fr);  
+  margin: 200px auto;
+  border: solid 3px blue;
+  height: 200px;
+  padding: 10px;
+}
+
+.product-content {
+  background-image: url('https://source.unsplash.com/random/150x150');
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: grab;
+}
+
+.shopping-cart {
+  position: fixed;
+  right: 0;
+  bottom: 10px;  
+  height: 160px;
+  width: 160px;
+  margin: 10px;
+  border: dashed 3px salmon;
+  background: white;
 }
