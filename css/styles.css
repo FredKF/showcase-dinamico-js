@@ -3,11 +3,16 @@
   margin-top: 200px;
 }
 
-.seis{
-  height: 50px;
-  background-color: rgb(29, 192, 165);
-  border: solid #fff;
+.quantity{
+  border-radius: 100%;
+  position: absolute;  
+  font-size: 13px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
   text-align: center;
+  overflow: hidden;
+  background-color: green;
 }
 
 .col-sm{
@@ -32,7 +37,7 @@
 .shopping-cart {
   position: fixed;
   right: 0;
-  bottom: 10px;  
+  bottom: 0px;  
   height: 160px;
   width: 160px;
   margin: 10px;
