@@ -1,15 +1,17 @@
 .container{
-  position: absolute;
+  
   background: url("../img/shelf.png");
   background-repeat: no-repeat;
-  background-size: 900px 600px;
+  background-size: 900px 620px;
   width: 900px;
   height: 600px;
-  padding: 50px;
-  margin-top: 200px; 
-  display: grid;
-  grid-template-rows: 10px,10px,10px;
-  grid-template-columns: repeat(4,1fr); 
+  padding: 20px;
+  margin: 200px 25%; 
+  display: grid;  
+  grid-template-columns: repeat(4,1fr);
+  row-gap: 0px; 
+  justify-items:center;
+  align-items: center;
   z-index: -1;
 }
 
