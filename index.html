@@ -10,66 +10,66 @@
 </head>
 <body>
 
-    <div class="container" data-drop-target="true"> 
+    <div class="container" > 
         <div class="row">
-            <div class="col">
+            <div class="col" data-drop-target="true" id="boat-container">
                 <div class="product-content" draggable="true" id="boat"> 
                     <img src="../img/boat.png" class="image" alt="Boat">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <img src="../img/ball.png" class="image" alt="Ball" draggable="true" ondragstart="drag(event)" id="ball">
+            <div class="col" data-drop-target="true" id="ball-container">
+                <div class="product-content" draggable="true" id="ball">
+                    <img src="../img/ball.png" class="image" alt="Ball">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/drum.png" class="image" alt="Drum"draggable="true" ondragstart="drag(event)" id="drum">
+            <div class="col" data-drop-target="true" id="drum-container">
+                <div class="product-content" draggable="true" id="drum">                    
+                    <img src="../img/drum.png" class="image" alt="Drum">
                 </div>
             </div>            
         </div>    
         <div class="row">
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/rocket.png" class="image" alt="Rocket"draggable="true" ondragstart="drag(event)" id="rocket">
+            <div class="col" data-drop-target="true" id="rocket-container">
+                <div class="product-content" draggable="true" id="rocket">                    
+                    <img src="../img/rocket.png" class="image" alt="Rocket">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/sand-bucket.png" class="image" alt="Sand Bucket"draggable="true" ondragstart="drag(event)" id="sand-bucket">
+            <div class="col" data-drop-target="true" id="sand-bucket-container">
+                <div class="product-content" draggable="true" id="sand-bucket">                    
+                    <img src="../img/sand-bucket.png" class="image" alt="Sand Bucket">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/spinner.png" class="image" alt="Spinner"draggable="true" ondragstart="drag(event)" id="spinner">
+            <div class="col" data-drop-target="true" id="spinner-container">
+                <div class="product-content" draggable="true" id="spinner">                    
+                    <img src="../img/spinner.png" class="image" alt="Spinner">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/jingle.png" class="image" alt="Jingle"draggable="true" ondragstart="drag(event)" id="jingle">
+            <div class="col" data-drop-target="true" id="jingle-container">
+                <div class="product-content" draggable="true" id="jingle">                    
+                    <img src="../img/jingle.png" class="image" alt="Jingle">
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/mamushka.png" class="image" alt="Mamushka"draggable="true" ondragstart="drag(event)" id="mamushka">
+        <div class="row"> 
+            <div class="col" data-drop-target="true" id="mamushka-container">
+                <div class="product-content" draggable="true" id="mamushka">                    
+                    <img src="../img/mamushka.png" class="image" alt="Mamushka">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/stack.png" class="image" alt="Stack"draggable="true" ondragstart="drag(event)" id="stack">
+            <div class="col" data-drop-target="true" id="stack-container">
+                <div class="product-content" draggable="true" id="stack">                    
+                    <img src="../img/stack.png" class="image" alt="Stack">
                 </div>
             </div>
-            <div class="col">
-                <div class="product-content" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">                    
-                    <img src="../img/robot.png" class="image" alt="Robot" draggable="true" ondragstart="drag(event)" id="robot">
+            <div class="col" data-drop-target="true" id="robot-container">
+                <div class="product-content" draggable="true" id="robot">                    
+                    <img src="../img/robot.png" class="image" alt="Robot">
                 </div>
             </div>
         </div>        
     </div> 
 
-    <div data-drop-target="true" class="shopping-cart">
+    <div data-drop-target="true" class="shopping-cart" id="shopping-cart">
         <span class="quantity" id="quantity">0</span>
         <span class="order">This Order</span>        
     </div>

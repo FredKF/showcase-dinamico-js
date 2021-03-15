@@ -1,6 +1,11 @@
 var draggable = document.querySelectorAll('[draggable]')
 var targets = document.querySelectorAll('[data-drop-target]');
 var container = document.getElementsByClassName("container");
+var rows = document.getElementsByClassName("row");
+var rowNode = rows[0];
+let quantity = 0;
+var quantityElement = document.getElementById("quantity");
+
 for(var i = 0; i < draggable.length; i++) {
     draggable[i].addEventListener("dragstart", handleDragStart);
 }
@@ -21,7 +26,21 @@ function handleOverDrop(e) {
     }
     var draggedId = e.dataTransfer.getData("text");
     var draggedElement = document.getElementById(draggedId);
+    var result = this.parentNode.isEqualNode(rowNode);    
 
-    draggedElement.parentNode.removeChild(draggedElement);
-    this.appendChild(draggedElement); 
+    if(this.id == "shopping-cart" || this.id == draggedElement.id)
+    {
+        draggedElement.parentNode.removeChild(draggedElement);
+        this.appendChild(draggedElement);
+        quantity++;
+        quantityElement.innerHTML = quantity;
+    }  
+
+    if(this.id == draggedElement.id + "-container")
+    {
+        draggedElement.parentNode.removeChild(draggedElement);
+        this.appendChild(draggedElement); 
+        quantity--;
+        quantityElement.innerHTML = quantity;
+    }
 }
