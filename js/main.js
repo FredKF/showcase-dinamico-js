@@ -1,41 +1,55 @@
-const productContents = document.querySelectorAll('.image');
-const shoppingCart = document.querySelector('.shopping-cart');
+var draggable = document.querySelectorAll('[draggable]')
+var targets = document.querySelectorAll('[data-drop-target]');
+var container = document.getElementsByClassName("container");
+var rows = document.getElementsByClassName("row");
+var rowNode = rows[0];
+let quantity = 0;
+var quantityElement = document.getElementById("quantity");
+let images = document.getElementsByClassName("image");
 
-shoppingCart.addEventListener('dragover', dragOver);
-shoppingCart.addEventListener('dragenter', dragEnter);
-shoppingCart.addEventListener('dragleave', dragLeave);
-shoppingCart.addEventListener('drop', dragDrop);
-
-for (const productContent of productContents ){
-    productContent.addEventListener('dragstart', dragStart);
-    productContent.addEventListener('dragend', dragEnd);    
-}  
-
-function dragStart(theEvent) {
-    theEvent.dataTransfer.setData("Text", theEvent.target.id);        
-    this.className += ' hold';
-    setTimeout(() => (this.className = 'invisible'), 0);
+for(var i = 0; i < draggable.length; i++) {
+    draggable[i].addEventListener("dragstart", handleDragStart);
 }
 
-function dragEnd() {
-  this.className = 'product-content';
+for(var i = 0; i < targets.length; i++) {
+    targets[i].addEventListener("dragover", handleOverDrop);
+    targets[i].addEventListener("drop", handleOverDrop);
 }
 
-function dragOver(e) {
-  e.preventDefault();
+function handleDragStart(e) {
+    e.dataTransfer.setData("text", this.id);
 }
 
-function dragEnter(e) {
-  e.preventDefault();
-  this.className += ' hovered';
-}
+function handleOverDrop(e) {
+    e.preventDefault(); 
+    if (e.type != "drop") {
+        return;
+    }
+    let imageInCartCount = 0;
+    var draggedId = e.dataTransfer.getData("text");
+    var draggedElement = document.getElementById(draggedId); 
+    let shoppingCartNode = document.getElementById("shopping-cart");
+    let shopingCartChildren = shoppingCartNode.children;
 
-function dragLeave() {
-//   this.className = 'empty-box';
-}
+    function iterate(item){      
+      if(item){
 
-function dragDrop() {  
-     // this.className += '';
-     theEvent.dataTransfer.getData("Text");
-    //  this.append(productContent);
+      }
+    }
+
+
+    if(this.id == "shopping-cart")
+    {
+        draggedElement.parentNode.removeChild(draggedElement);
+        this.appendChild(draggedElement);
+        quantity++;
+        quantityElement.innerHTML = quantity;
+    }else if(this.id == "product-container" && this.children.length === 0){
+          if(draggedElement.parentNode.id == "shopping-cart"){
+          quantity--;
+          quantityElement.innerHTML = quantity;
+        }        
+        draggedElement.parentNode.removeChild(draggedElement);
+        this.appendChild(draggedElement); 
+    }
 }

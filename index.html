@@ -3,77 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="css/styles.css">    
     <title>DynamicShowCase</title>
 </head>
 <body>
 
-    <div class="container" > 
-        <div class="row">
-            <div class="col" data-drop-target="true" id="boat-container">
-                <div class="product-content" draggable="true" id="boat"> 
-                    <img src="../img/boat.png" class="image" alt="Boat">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="ball-container">
-                <div class="product-content" draggable="true" id="ball">
-                    <img src="../img/ball.png" class="image" alt="Ball">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="drum-container">
-                <div class="product-content" draggable="true" id="drum">                    
-                    <img src="../img/drum.png" class="image" alt="Drum">
-                </div>
-            </div>            
-        </div>    
-        <div class="row">
-            <div class="col" data-drop-target="true" id="rocket-container">
-                <div class="product-content" draggable="true" id="rocket">                    
-                    <img src="../img/rocket.png" class="image" alt="Rocket">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="sand-bucket-container">
-                <div class="product-content" draggable="true" id="sand-bucket">                    
-                    <img src="../img/sand-bucket.png" class="image" alt="Sand Bucket">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="spinner-container">
-                <div class="product-content" draggable="true" id="spinner">                    
-                    <img src="../img/spinner.png" class="image" alt="Spinner">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="jingle-container">
-                <div class="product-content" draggable="true" id="jingle">                    
-                    <img src="../img/jingle.png" class="image" alt="Jingle">
-                </div>
-            </div>
+    <div class="container" id="main-container">  
+
+        <div class="product-content" data-drop-target="true" id="product-container"> 
+            <img src="../img/boat.png" draggable="true" class="image" alt="Boat" id="boat">
         </div>
-        <div class="row"> 
-            <div class="col" data-drop-target="true" id="mamushka-container">
-                <div class="product-content" draggable="true" id="mamushka">                    
-                    <img src="../img/mamushka.png" class="image" alt="Mamushka">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="stack-container">
-                <div class="product-content" draggable="true" id="stack">                    
-                    <img src="../img/stack.png" class="image" alt="Stack">
-                </div>
-            </div>
-            <div class="col" data-drop-target="true" id="robot-container">
-                <div class="product-content" draggable="true" id="robot">                    
-                    <img src="../img/robot.png" class="image" alt="Robot">
-                </div>
-            </div>
-        </div>        
+        <div class="product-content" data-drop-target="true" id="product-container">
+            <img src="../img/ball.png" class="image" alt="Ball" draggable="true" id="ball">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/drum.png" class="image" alt="Drum" draggable="true" id="drum">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">
+            <img src="../img/rocket.png" class="image" alt="Rocket" draggable="true" id="rocket">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/sand-bucket.png" class="image" alt="Sand Bucket" draggable="true" id="sand-bucket">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container" >                    
+            <img src="../img/spinner.png" class="image" alt="Spinner" draggable="true" id="spinner">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/jingle.png" class="image" alt="Jingle" draggable="true" id="jingle">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/mamushka.png" class="image" alt="Mamushka" draggable="true" id="mamushka">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/stack.png" class="image" alt="Stack" draggable="true" id="stack">
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/robot.png" class="image" alt="Robot" draggable="true" id="robot"> 
+        </div>
     </div> 
 
     <div data-drop-target="true" class="shopping-cart" id="shopping-cart">
         <span class="quantity" id="quantity">0</span>
         <span class="order">This Order</span>        
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <script src="js/test.js"></script>          
+    <script src="js/main.js"></script>          
 </body>
 </html>
