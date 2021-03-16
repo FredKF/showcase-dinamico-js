@@ -31,19 +31,17 @@ function handleOverDrop(e) {
     let shoppingCartNode = document.getElementById("shopping-cart");
     let shopingCartChildren = shoppingCartNode.children;
 
-    function iterate(item){      
-      if(item){
-
-      }
-    }
+    
 
 
     if(this.id == "shopping-cart")
-    {
+    {        
+        if(draggedElement.parentNode.id != this.id){
+            quantity++;
+            quantityElement.innerHTML = quantity;
+        }
         draggedElement.parentNode.removeChild(draggedElement);
         this.appendChild(draggedElement);
-        quantity++;
-        quantityElement.innerHTML = quantity;
     }else if(this.id == "product-container" && this.children.length === 0){
           if(draggedElement.parentNode.id == "shopping-cart"){
           quantity--;
