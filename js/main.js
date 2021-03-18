@@ -1,17 +1,16 @@
-var draggable = document.querySelectorAll('[draggable]')
+var draggables = document.querySelectorAll('[draggable]')
 var targets = document.querySelectorAll('[data-drop-target]');
-var container = document.getElementsByClassName("container");
-var rows = document.getElementsByClassName("row");
-var rowNode = rows[0];
-let quantity = 0;
-var quantityElement = document.getElementById("quantity");
-let images = document.getElementsByClassName("image");
+let productQuantity = 0;
+var quantityNode = document.getElementById("quantity");
+const shoppingCartId = "shopping-cart";
+const productContainerId = "product-container";
 
-for(var i = 0; i < draggable.length; i++) {
-    draggable[i].addEventListener("dragstart", handleDragStart);
+for(var i = 0; i < draggables.length; i++) {
+    draggables[i].addEventListener("dragstart", handleDragStart);
 }
 
-for(var i = 0; i < targets.length; i++) {
+for(var i = 0; i < targets.length; i++) 
+{
     targets[i].addEventListener("dragover", handleOverDrop);
     targets[i].addEventListener("drop", handleOverDrop);
 }
@@ -25,28 +24,28 @@ function handleOverDrop(e) {
     if (e.type != "drop") {
         return;
     }
-    let imageInCartCount = 0;
     var draggedId = e.dataTransfer.getData("text");
     var draggedElement = document.getElementById(draggedId); 
-    let shoppingCartNode = document.getElementById("shopping-cart");
-    let shopingCartChildren = shoppingCartNode.children;
 
-    
-
-
-    if(this.id == "shopping-cart")
+    if(this.id == shoppingCartId)
     {        
-        if(draggedElement.parentNode.id != this.id){
-            quantity++;
-            quantityElement.innerHTML = quantity;
+        if(draggedElement.parentNode.id != this.id)
+        {
+            productQuantity++;
+            quantityNode.innerHTML = productQuantity;
         }
+
         draggedElement.parentNode.removeChild(draggedElement);
         this.appendChild(draggedElement);
-    }else if(this.id == "product-container" && this.children.length === 0){
-          if(draggedElement.parentNode.id == "shopping-cart"){
-          quantity--;
-          quantityElement.innerHTML = quantity;
-        }        
+    }
+    else if(this.id == productContainerId && this.children.length === 0)
+    {
+        if(draggedElement.parentNode.id == shoppingCartId)
+        {
+            productQuantity--;
+            quantityNode.innerHTML = productQuantity;
+        }    
+
         draggedElement.parentNode.removeChild(draggedElement);
         this.appendChild(draggedElement); 
     }
