@@ -1,18 +1,23 @@
-var draggables = document.querySelectorAll('[draggable]')
-var targets = document.querySelectorAll('[data-drop-target]');
+let draggables = document.querySelectorAll('[draggable]')
+let targets = document.querySelectorAll('[data-drop-target]');
 let productQuantity = 0;
-var quantityNode = document.getElementById("quantity");
+let quantityNode = document.getElementById("quantity");
 const shoppingCartId = "shopping-cart";
-const productContainerId = "product-container";
+let shoppingCart = document.getElementById(shoppingCartId);
+const productsContainerId = "product-container";
+let productContainer = document.getElementById(productsContainerId);
+let totalPriceNode = document.getElementById("total-price");
+let totalPrice = 0;
 
-for(var i = 0; i < draggables.length; i++) {
-    draggables[i].addEventListener("dragstart", handleDragStart);
+for(draggable of draggables) 
+{
+    draggable.addEventListener("dragstart", handleDragStart);
 }
 
-for(var i = 0; i < targets.length; i++) 
+for(target of targets) 
 {
-    targets[i].addEventListener("dragover", handleOverDrop);
-    targets[i].addEventListener("drop", handleOverDrop);
+    target.addEventListener("dragover", handleOverDrop);
+    target.addEventListener("drop", handleOverDrop);
 }
 
 function handleDragStart(e) {
@@ -24,29 +29,40 @@ function handleOverDrop(e) {
     if (e.type != "drop") {
         return;
     }
-    var draggedId = e.dataTransfer.getData("text");
-    var draggedElement = document.getElementById(draggedId); 
+    let draggedId = e.dataTransfer.getData("text");
+    let draggedElement = document.getElementById(draggedId); 
+    let currentPriceElement = document.getElementById(draggedElement.id + "-price");
 
     if(this.id == shoppingCartId)
-    {        
-        if(draggedElement.parentNode.id != this.id)
+    {   
+        if(draggedElement.id != this.id)
         {
             productQuantity++;
             quantityNode.innerHTML = productQuantity;
-        }
+            draggedElement.className = "cart-dropped";
+        }        
 
-        draggedElement.parentNode.removeChild(draggedElement);
-        this.appendChild(draggedElement);
+        currentPriceElement.className="invisible";
+        draggedElement.parentNode.removeChild(currentPriceElement);
+        draggedElement.parentNode.removeChild(draggedElement);        
+        draggedElement.appendChild(currentPriceElement);
+        this.appendChild(draggedElement);     
+        totalPrice = totalPrice + Number(draggedElement.getAttribute("price"));
+        totalPriceNode.innerHTML = totalPrice.toString();
     }
-    else if(this.id == productContainerId && this.children.length === 0)
+    else if(this.id == productsContainerId && this.children.length === 0)    
     {
         if(draggedElement.parentNode.id == shoppingCartId)
         {
             productQuantity--;
             quantityNode.innerHTML = productQuantity;
-        }    
-
-        draggedElement.parentNode.removeChild(draggedElement);
-        this.appendChild(draggedElement); 
+        }
+        currentPriceElement.className = "visible product-price";
+        draggedElement.parentNode.removeChild(draggedElement);               
+        this.appendChild(draggedElement);
+        this.appendChild(currentPriceElement);
+        draggedElement.className = "image";
+        totalPrice = totalPrice - Number(draggedElement.getAttribute("price"));
+        totalPriceNode.innerHTML = totalPrice.toString();
     }
 }

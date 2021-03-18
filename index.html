@@ -8,45 +8,68 @@
     <title>DynamicShowCase</title>
 </head>
 <body>
-
-    <div class="container" id="main-container">  
+      
+    <div class="products-container" id="products-container">
 
         <div class="product-content" data-drop-target="true" id="product-container"> 
-            <img src="../img/boat.png" draggable="true" class="image" alt="Boat" id="boat">
+            <img src="../img/boat.png" draggable="true" class="image" id="boat" alt="Boat" price=22>
+            <span class="product-price" id="boat-price">$22</span>            
+        </div>
+
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/ball.png" draggable="true" class="image" id="ball" alt="Ball" price=5>
+            <span class="product-price" id="ball-price">$5</span>
+        </div>
+
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/drum.png" class="image" alt="Drum" draggable="true" id="drum" price=25>
+            <span class="product-price" id="drum-price">$25</span>
         </div>
         <div class="product-content" data-drop-target="true" id="product-container">
-            <img src="../img/ball.png" class="image" alt="Ball" draggable="true" id="ball">
+            <img src="../img/rocket.png" class="image" alt="Rocket" draggable="true" id="rocket" price=15>
+            <span class="product-price" id="rocket-price">$15</span>
         </div>
+        
         <div class="product-content" data-drop-target="true" id="product-container">                    
-            <img src="../img/drum.png" class="image" alt="Drum" draggable="true" id="drum">
-        </div>
-        <div class="product-content" data-drop-target="true" id="product-container">
-            <img src="../img/rocket.png" class="image" alt="Rocket" draggable="true" id="rocket">
-        </div>
-        <div class="product-content" data-drop-target="true" id="product-container">                    
-            <img src="../img/sand-bucket.png" class="image" alt="Sand Bucket" draggable="true" id="sand-bucket">
+            <img src="../img/sand-bucket.png" class="image" alt="Sand Bucket" draggable="true" id="sand-bucket" price=3>
+            <span class="product-price" id="sand-bucket-price">$3</span>
         </div>
         <div class="product-content" data-drop-target="true" id="product-container" >                    
-            <img src="../img/spinner.png" class="image" alt="Spinner" draggable="true" id="spinner">
+            <img src="../img/spinner.png" class="image" alt="Spinner" draggable="true" id="spinner" price=1>
+            <span class="product-price" id="spinner-price">$1</span>
         </div>
         <div class="product-content" data-drop-target="true" id="product-container">                    
-            <img src="../img/jingle.png" class="image" alt="Jingle" draggable="true" id="jingle">
+            <img src="../img/jingle.png" class="image" alt="Jingle" draggable="true" id="jingle" price=5>
+            <span class="product-price" id="jingle-price">$5</span>
         </div>
         <div class="product-content" data-drop-target="true" id="product-container">                    
-            <img src="../img/mamushka.png" class="image" alt="Mamushka" draggable="true" id="mamushka">
+            <img src="../img/mamushka.png" class="image" alt="Mamushka" draggable="true" id="mamushka" price=20>
+            <span class="product-price" id="mamushka-price">$20</span>
         </div>
         <div class="product-content" data-drop-target="true" id="product-container">                    
-            <img src="../img/stack.png" class="image" alt="Stack" draggable="true" id="stack">
+            <img src="../img/stack.png" class="image" alt="Stack" draggable="true" id="stack" price=8>
+            <span class="product-price" id="stack-price">$8</span>
         </div>
         <div class="product-content" data-drop-target="true" id="product-container">                    
-            <img src="../img/robot.png" class="image" alt="Robot" draggable="true" id="robot"> 
+            <img src="../img/robot.png" class="image" alt="Robot" draggable="true" id="robot" price=56> 
+            <span class="product-price" id="robot-price">$56</span>
         </div>
-    </div> 
-
-    <div data-drop-target="true" class="shopping-cart" id="shopping-cart">
-        <span class="quantity" id="quantity">0</span>
-        <span class="order">This Order</span>        
-    </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/duck.png" class="image" alt="Duck" draggable="true" id="duck" price=35>
+            <span class="product-price" id="duck-price">$35</span>
+        </div>
+        <div class="product-content" data-drop-target="true" id="product-container">                    
+            <img src="../img/trumpet.png" class="image" alt="Trumpet" draggable="true" id="trumpet" price=80> 
+            <span class="product-price" id="trumpet-price">$80</span>
+        </div>                     
+    </div>       
+    <div class="shopping-cart" data-drop-target="true" id="shopping-cart">
+        <div class="shopping-cart-header">
+            <span class="quantity" id="quantity">0</span>
+            <span class="order-text">This Order</span>            
+        </div>
+        <span class="quantity total-price" id="total-price">0</span>   
+    </div>   
     <script src="js/main.js"></script>          
 </body>
 </html>
