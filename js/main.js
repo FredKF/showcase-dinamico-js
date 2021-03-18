@@ -56,13 +56,13 @@ function handleOverDrop(e) {
         {
             productQuantity--;
             quantityNode.innerHTML = productQuantity;
+            totalPrice = totalPrice - Number(draggedElement.getAttribute("price"));
+            totalPriceNode.innerHTML = totalPrice.toString();
         }
         currentPriceElement.className = "visible product-price";
         draggedElement.parentNode.removeChild(draggedElement);               
         this.appendChild(draggedElement);
         this.appendChild(currentPriceElement);
         draggedElement.className = "image";
-        totalPrice = totalPrice - Number(draggedElement.getAttribute("price"));
-        totalPriceNode.innerHTML = totalPrice.toString();
     }
 }
