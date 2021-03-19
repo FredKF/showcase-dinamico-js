@@ -1,13 +1,15 @@
 let draggables = document.querySelectorAll('[draggable]')
 let targets = document.querySelectorAll('[data-drop-target]');
-let productQuantity = 0;
 let quantityNode = document.getElementById("quantity");
-const shoppingCartId = "shopping-cart";
 let shoppingCart = document.getElementById(shoppingCartId);
-const productsContainerId = "product-container";
 let productContainer = document.getElementById(productsContainerId);
 let totalPriceNode = document.getElementById("total-price");
+let orderTextNode = document.getElementById("order-text");
+let shoppingCartHeaderNode = document.getElementById("shopping-cart-header");
+let productQuantity = 0;
 let totalPrice = 0;
+const shoppingCartId = "shopping-cart";
+const productsContainerId = "product-container";
 
 for(draggable of draggables) 
 {
@@ -20,9 +22,30 @@ for(target of targets)
     target.addEventListener("drop", handleOverDrop);
 }
 
-function handleDragStart(e) {
+function handleDragStart(e) 
+{
     e.dataTransfer.setData("text", this.id);
+} 
+
+function emptyCartStyles()
+{
+   shoppingCart.className = "shopping-cart order-container";
+   orderTextNode.innerHTML ="Drag your items here!";
+   quantityNode.className = "invisible";
+   totalPriceNode.className = "invisible";
+   shoppingCartHeaderNode.className = "shopping-cart-header centered";
 }
+
+function defaultCartStyles()
+{
+   shoppingCart.className = "shopping-cart";
+   orderTextNode.innerHTML ="Your Order";
+   quantityNode.className = "visible";
+   totalPriceNode.className = "quantity total-price visible";
+   shoppingCartHeaderNode.className = "shopping-cart-header";
+}
+
+if(productQuantity == 0) emptyCartStyles()
 
 function handleOverDrop(e) {
     e.preventDefault(); 
@@ -31,7 +54,7 @@ function handleOverDrop(e) {
     }
     let draggedId = e.dataTransfer.getData("text");
     let draggedElement = document.getElementById(draggedId); 
-    let currentPriceElement = document.getElementById(draggedElement.id + "-price");
+    let currentPriceElement = document.getElementById(draggedElement.id + "-price");    
 
     if(this.id == shoppingCartId)
     {   
@@ -41,14 +64,14 @@ function handleOverDrop(e) {
             quantityNode.innerHTML = productQuantity;
             draggedElement.className = "cart-dropped";
         }        
-
         currentPriceElement.className="invisible";
         draggedElement.parentNode.removeChild(currentPriceElement);
         draggedElement.parentNode.removeChild(draggedElement);        
         draggedElement.appendChild(currentPriceElement);
         this.appendChild(draggedElement);     
         totalPrice = totalPrice + Number(draggedElement.getAttribute("price"));
-        totalPriceNode.innerHTML = totalPrice.toString();
+        totalPriceNode.innerHTML = "$" + totalPrice.toString();
+        productQuantity == 0 ? emptyCartStyles() : defaultCartStyles()
     }
     else if(this.id == productsContainerId && this.children.length === 0)    
     {
@@ -57,12 +80,13 @@ function handleOverDrop(e) {
             productQuantity--;
             quantityNode.innerHTML = productQuantity;
             totalPrice = totalPrice - Number(draggedElement.getAttribute("price"));
-            totalPriceNode.innerHTML = totalPrice.toString();
+            totalPriceNode.innerHTML = "$" + totalPrice.toString();
         }
         currentPriceElement.className = "visible product-price";
         draggedElement.parentNode.removeChild(draggedElement);               
         this.appendChild(draggedElement);
         this.appendChild(currentPriceElement);
         draggedElement.className = "image";
+        productQuantity == 0 ? emptyCartStyles() : defaultCartStyles()
     }
 }

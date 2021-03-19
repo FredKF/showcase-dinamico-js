@@ -5,7 +5,7 @@
   width: 790px;
   height: 470px;
   padding: 20px;
-  margin: 100px 15%; 
+  margin: 100px 10%; 
   display: grid;  
   grid-template-columns: repeat(4,1fr);
   row-gap: 0px; 
@@ -97,4 +97,28 @@
 
 .visible{
   visibility: visible;
+}
+
+.order-container{
+  border: dashed grey 3px;
+}
+
+.order-text{
+  font-family: Roboto, sans-serif;
+  font-size: 60px;
+}
+
+.centered{
+  margin: auto;
+  padding: 10px;
+  margin-top: 50%;
+}
+
+@media only screen and (max-width: 940px){
+  .shopping-cart{
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    
+  }
 }
