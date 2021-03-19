@@ -1,3 +1,7 @@
+let productQuantity = 0;
+let totalPrice = 0;
+const shoppingCartId = "shopping-cart";
+const productsContainerId = "product-container";
 let draggables = document.querySelectorAll('[draggable]')
 let targets = document.querySelectorAll('[data-drop-target]');
 let quantityNode = document.getElementById("quantity");
@@ -6,10 +10,6 @@ let productContainer = document.getElementById(productsContainerId);
 let totalPriceNode = document.getElementById("total-price");
 let orderTextNode = document.getElementById("order-text");
 let shoppingCartHeaderNode = document.getElementById("shopping-cart-header");
-let productQuantity = 0;
-let totalPrice = 0;
-const shoppingCartId = "shopping-cart";
-const productsContainerId = "product-container";
 
 for(draggable of draggables) 
 {
