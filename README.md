@@ -7,11 +7,9 @@ Is a project created with combined JavasCript and ES6 technologies to create a d
 
 This app is a drag & drop solution that works with items and their prices, just drag itmes and drop them in the droppable areas to get results. You can also exchange grid items positions if there is an empty space in it.
 
-<img src="images/readme/drag1.png">
-![](images/readme/drag1.png)
-
-
-
+<img src="img/readme/drag1.png">
+<img src="img/readme/drag2.png">
+<img src="img/readme/drag3.png">
 
 ## Contributing
 
